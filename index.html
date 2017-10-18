@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>CSS Grid Layout Calendar</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+
+    </head>
+    <body>
+
+        <header>
+            <span id="month"></span>&nbsp;<span id="year"></span>
+            <button id="prev" onclick="prev();">&lt;&lt;&lt;</button>
+            <button id="next" onclick="next();">&gt;&gt;&gt;</button>
+        </header>
+
+        <nav id="days">
+            <div class="dayname red">Sunday</div>
+            <div class="dayname">Monday</div>
+            <div class="dayname">Tuesday</div>
+            <div class="dayname">Wednesday</div>
+            <div class="dayname">Thursday</div>
+            <div class="dayname">Friday</div>
+            <div class="dayname">Saturday</div>
+        </nav>
+
+        <nav id="abr">
+            <div class="dayname red">Sun</div>
+            <div class="dayname">Mon</div>
+            <div class="dayname">Tue</div>
+            <div class="dayname">Wed</div>
+            <div class="dayname">Thu</div>
+            <div class="dayname">Fri</div>
+            <div class="dayname">Sat</div>
+        </nav>
+
+        <div id="calendar">
+        </div>
+
+
+
+    </body>
+</html>
