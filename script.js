@@ -25,7 +25,7 @@ function promptForEvent(dayElement) {
 function addEventToCalendar(eventElement, dayElement) {
 
     if(dayElement.children(".event").length >= 2) {
-        var moreElement = $("<div>").attr("class", "event more");
+        var moreElement = $("<div>").attr("class", "event more ui-widget-content");
         dayElement.append(moreElement);
 
         moreElement.text("+ " + (dayElement.children(".event").length - 2) + " more")
@@ -52,6 +52,12 @@ function fillCalendar() {
         var day = document.createElement('div');
         day.className = "day";
         day.innerHTML = dayNumber;
+
+        $(day).droppable({
+            over: function(event, ui) {
+                ui.draggable.detach().appendTo($(this));
+            }
+        });
 
         if (dayNumber == 1)
             day.style.gridColumn = new Date(date.getUTCFullYear(), date.getMonth(), 1).getDay() + 1;
@@ -90,8 +96,13 @@ function next() {
 }
 
 function createEventElement(ev) {
-    var element = $("<div>").attr("class", "event");
+    var element = $("<div>").attr("class", "event ui-widget-content");
     element.text(ev.name);
+    element.draggable({
+        helper:"clone",
+        cursor: "pointer",
+        containment:"document"
+    });
     
     return element;
 }

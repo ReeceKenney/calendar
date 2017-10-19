@@ -13,7 +13,7 @@ body {
     border: 25px solid white;
     box-sizing: border-box;
 
-    font-family: 'Bree Serif', serif;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
     font-size: 1.1em;
 }
 
@@ -88,6 +88,8 @@ nav {
     padding: 2px;
     box-sizing: border-box;
     margin-bottom: 1px;
+    z-index: 100;
+    cursor: pointer;
 }
 
 .event.more {
