@@ -2,7 +2,39 @@ var date = new Date();
 
 $(document).ready(function() {
     fillCalendar();
+
+    $(document).on("dblclick", ".day", function(click) {
+        var day = $(click.currentTarget);
+        
+        promptForEvent(day);
+    });
 });
+
+function promptForEvent(dayElement) {
+    var eventName = prompt("Enter a name for the event.");
+
+    if(eventName) {
+
+        var newEvent = new CalendarEvent(eventName);
+        var eventElement = createEventElement(newEvent);
+
+        addEventToCalendar(eventElement, dayElement);
+    }
+}
+
+function addEventToCalendar(eventElement, dayElement) {
+
+    if(dayElement.children(".event").length >= 2) {
+        var moreElement = $("<div>").attr("class", "event more");
+        dayElement.append(moreElement);
+
+        moreElement.text("+ " + (dayElement.children(".event").length - 2) + " more")
+
+        return;
+    }
+
+    dayElement.append(eventElement);
+}
 
 function fillCalendar() {
     var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -23,14 +55,14 @@ function fillCalendar() {
 
         if (dayNumber == 1)
             day.style.gridColumn = new Date(date.getUTCFullYear(), date.getMonth(), 1).getDay() + 1;
-        if (new Date(date.getUTCFullYear(), date.getMonth(), dayNumber).getDay() == 0)
+        
+        var dayOfWeek = new Date(date.getUTCFullYear(), date.getMonth(), dayNumber).getDay()
+        if (dayOfWeek == 0 || dayOfWeek == 6)
             day.className += " red";
 
         var today = new Date();
         if (dayNumber == today.getDate() && date.getUTCFullYear() == today.getUTCFullYear() && date.getMonth() == today.getMonth())
             day.className += " today";
-
-        getEvents(day, dayNumber);
 
         calendar.appendChild(day);
     }
@@ -57,20 +89,11 @@ function next() {
     fillCalendar();
 }
 
-function getEvents(day, dayNumber) {
-    if(dayNumber == 10 || dayNumber == 11 || dayNumber == 12 || dayNumber == 13) {
-        var ev = $("<div>").attr("class", "event");
-        ev.text("Convention");
-
-        if(dayNumber == 10) {
-            ev.addClass("start");
-        }
-        else if(dayNumber == 13) {
-            ev.addClass("end");
-        }
-
-        $(day).append(ev);
-    }
+function createEventElement(ev) {
+    var element = $("<div>").attr("class", "event");
+    element.text(ev.name);
+    
+    return element;
 }
 
 
