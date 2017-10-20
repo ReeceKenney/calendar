@@ -16,6 +16,7 @@
         <script src="Day.js"></script>
         <script src="DayCell.js"></script>
         <script src="DayCellProvider.js"></script>
+        <script src="SchedulerControl.js"></script>
 
     </head>
     <body>
@@ -25,27 +26,38 @@
             <button id="next" onclick="next();">&gt;&gt;&gt;</button>
         </header>
 
-        <nav id="days">
-            <div class="dayname red">Sunday</div>
-            <div class="dayname">Monday</div>
-            <div class="dayname">Tuesday</div>
-            <div class="dayname">Wednesday</div>
-            <div class="dayname">Thursday</div>
-            <div class="dayname">Friday</div>
-            <div class="dayname">Saturday</div>
-        </nav>
+        <div id="calendarContainer">
 
-        <nav id="abr">
-            <div class="dayname red">Sun</div>
-            <div class="dayname">Mon</div>
-            <div class="dayname">Tue</div>
-            <div class="dayname">Wed</div>
-            <div class="dayname">Thu</div>
-            <div class="dayname">Fri</div>
-            <div class="dayname">Sat</div>
-        </nav>
+            <div id="scheduler">
+        
+            </div>
+
+            <div id="calendar">
+
+                <nav id="days">
+                    <div class="dayname red">Sunday</div>
+                    <div class="dayname">Monday</div>
+                    <div class="dayname">Tuesday</div>
+                    <div class="dayname">Wednesday</div>
+                    <div class="dayname">Thursday</div>
+                    <div class="dayname">Friday</div>
+                    <div class="dayname">Saturday</div>
+                </nav>
+        
+                <nav id="abr">
+                    <div class="dayname red">Sun</div>
+                    <div class="dayname">Mon</div>
+                    <div class="dayname">Tue</div>
+                    <div class="dayname">Wed</div>
+                    <div class="dayname">Thu</div>
+                    <div class="dayname">Fri</div>
+                    <div class="dayname">Sat</div>
+                </nav>
 
 
+            </div>
+
+        </div>
 
     </body>
 </html>

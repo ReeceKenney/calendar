@@ -1,13 +1,13 @@
 function Calendar() {
 
-    this.daysSection = $("<div>").attr("id", "calendar");
+    this.daysSection = $("<div>").attr("id", "daysSection");
     this.daysSection.on("dblclick", ".day", function(click) {
         var day = $(click.currentTarget);
         
         promptForEvent(day);
     });
-    
-    $("body").append(this.daysSection);
+
+    $("#calendar").append(this.daysSection);
 
     this.fill = function() {
         var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

@@ -1,9 +1,11 @@
 var date = new Date();
-var calendar;
+var calendar, scheduler;
 
 $(document).ready(function() {
     calendar = new Calendar();
     calendar.fill();
+
+    scheduler = new SchedulerControl();
 });
 
 function promptForEvent(dayElement) {
