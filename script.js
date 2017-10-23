@@ -8,18 +8,6 @@ $(document).ready(function() {
     scheduler = new SchedulerControl();
 });
 
-function promptForEvent(dayElement) {
-    var eventName = prompt("Enter a name for the event.");
-
-    if(eventName) {
-
-        var newEvent = new CalendarEvent(eventName);
-        var eventElement = new CalendarEventElement(newEvent);
-
-        this.calendar.addEvent(eventElement, dayElement);
-    }
-}
-
 function prev() {
     calendar.clearDays();
 

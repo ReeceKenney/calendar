@@ -1,5 +1,6 @@
 function Calendar() {
 
+    this.days = [];
     this.daysSection = $("<div>").attr("id", "daysSection");
     this.daysSection.on("dblclick", ".day", function(click) {
         var day = $(click.currentTarget);
@@ -25,24 +26,11 @@ function Calendar() {
             var dayCell = new DayCell(day);
     
             this.daysSection.append(dayCell.element);
+            this.days.push(dayCell);
         }
     }
 
     this.clearDays = function() {
         this.daysSection[0].innerHTML = "";
-    }
-
-    this.addEvent = function(eventElement, dayElement) {
-            
-        if(dayElement.children(".event").length >= 2) {
-            var moreElement = $("<div>").attr("class", "event more ui-widget-content");
-            dayElement.append(moreElement);
-    
-            moreElement.text("+ " + (dayElement.children(".event").length - 2) + " more")
-    
-            return;
-        }
-    
-        dayElement.append(eventElement.element);
     }
 }
