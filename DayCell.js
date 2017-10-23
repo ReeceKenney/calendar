@@ -51,17 +51,15 @@ function DayCell(day) {
 
         if(dayElement.children(".event").length >= 2) {
 
-            if($(".event.more").length == 0) {
+            if(dayElement.children(".event.more").length == 0) {
                 var moreElement = $("<div>").attr("class", "event more ui-widget-content");
                 dayElement.append(moreElement);
     
                 moreElement.text("+ " + (this.events.length - 2) + " more");
             }
             else {
-                $(".event.more").text("+ " + (this.events.length - 2) + " more");
-            }
-
-            
+                dayElement.children(".event.more").text("+ " + (this.events.length - 2) + " more");
+            }     
 
             return;
         }
